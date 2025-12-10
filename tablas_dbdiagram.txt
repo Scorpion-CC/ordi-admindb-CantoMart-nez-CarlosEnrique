@@ -4,6 +4,7 @@ Table usuario {
   edad integer
   correo varchar(100)
   pais varchar(100)
+  id_suscripcion integer [ref: > suscripcion.id]
   created_at varchar(100)
   created_by varchar(100)
   updated_at varchar(100)
@@ -83,3 +84,31 @@ Table genero{
   updated_by varchar(100)
   active bool
 }
+
+Table suscripcion {
+  id integer
+  nombre varchar(100)
+  tipo enum("free", "premium", "familiar", "estudiantil")
+  costo double
+  fecha_exp date
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
+}
+
+Table logs {
+  id integer [primary key]
+  id_cancion integer [ref: > cancion.id]
+  id_usuario integer [ref: > usuario.id]
+  minutos double
+  año year
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
+}
+
+Ref: "usuario"."id" < "usuario"."created_by"
