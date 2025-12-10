@@ -1,0 +1,50 @@
+Table usuario {
+  id integer [primary key]
+  nombre varchar(100)
+  edad integer
+  correo varchar(100)
+  pais varchar(100)
+}
+
+Table artista {
+  id integer [primary key]
+  nombre varchar(100)
+  edad integer
+  pais varchar(100)
+  correo varchar(100) 
+}
+
+Table album {
+  id integer [primary key]
+  nombre varchar(100)
+  descripcion varchar(250)
+  id_artista integer [ref: > artista.id]
+  id_genero integer [ref: > genero.id]
+}
+
+Table cancion {
+  id integer [primary key]
+  nombre varchar(100)
+  descripcion varchar(250)
+  visibilidad varchar(50)
+  id_album integer [ref: > album.id]
+}
+
+Table playlist {
+  id integer [primary key]
+  nombre varchar(100)
+  descripcion varchar(250)
+  id_usuario integer [ref: > usuario.id]
+}
+
+Table cancion_playlist{
+  id integer [primary key]
+  id_playlist integer [ref: > playlist.id]
+  id_cancion integer [ref: > cancion.id]
+}
+
+Table genero{
+  id integer
+  nombre varchar(100)
+  descripcion varchar(250)
+}
