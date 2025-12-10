@@ -4,6 +4,11 @@ Table usuario {
   edad integer
   correo varchar(100)
   pais varchar(100)
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table artista {
@@ -12,6 +17,11 @@ Table artista {
   edad integer
   pais varchar(100)
   correo varchar(100) 
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table album {
@@ -20,6 +30,11 @@ Table album {
   descripcion varchar(250)
   id_artista integer [ref: > artista.id]
   id_genero integer [ref: > genero.id]
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table cancion {
@@ -28,6 +43,11 @@ Table cancion {
   descripcion varchar(250)
   visibilidad varchar(50)
   id_album integer [ref: > album.id]
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table playlist {
@@ -35,16 +55,31 @@ Table playlist {
   nombre varchar(100)
   descripcion varchar(250)
   id_usuario integer [ref: > usuario.id]
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table cancion_playlist{
   id integer [primary key]
   id_playlist integer [ref: > playlist.id]
   id_cancion integer [ref: > cancion.id]
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
 
 Table genero{
   id integer
   nombre varchar(100)
   descripcion varchar(250)
+  created_at varchar(100)
+  created_by varchar(100)
+  updated_at varchar(100)
+  updated_by varchar(100)
+  active bool
 }
